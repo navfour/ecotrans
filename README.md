@@ -13,9 +13,9 @@ You can watch the performance of the model change by adjusting the relevant para
 We compare the performance of A, B and C in economic forecasting. Compared with B and C, our model has significantly improved
 
 
-![image](https://github.com/navfour/ecotrans/img1.svg)
+![image](https://github.com/navfour/ecotrans/blob/main/img/img1.svg)
 
-![image](https://github.com/navfour/ecotrans/img2.svg)
+![image](https://github.com/navfour/ecotrans/blob/main/img/img2.svg)
 
 ### Datasets
 The sample data covers 30 years from the first quarter of 1992 to the third quarter of 2022
