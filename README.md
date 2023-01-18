@@ -15,9 +15,9 @@ You can observe the changes in model performance by manually tuning EcoForecast'
 We compare the performance of A, B and C in economic forecasting. Compared with B and C, our model has significantly improved
 
 
-![image](https://github.com/navfour/ecotrans/img1.svg)
+![image](https://github.com/navfour/ecotrans/img/img1.svg)
 
-![image](https://github.com/navfour/ecotrans/img2.svg)
+![image](https://github.com/navfour/ecotrans/img/img2.svg)
 
 ### Datasets
 `GDP` data covers 30 years **from the first quarter of 1992 to the first quarter of 2022**, with 121 pieces updated quarterly. The `PMI` covers 17 years of data **from June 2005 to April 2022**, with 204 items updated monthly. `ELECT` covers 32 years of data **from June 1990 to March 2022**, with 375 updates monthly.
