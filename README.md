@@ -1,10 +1,10 @@
-# EcoForecast: An interpretable data-driven approach for short-term macroeconomic forecasting using N-BEATS neural network
+# EcoTrans: An interpretable large-scale Transformer-based model for macroeconomic forecasting with massive external multimodal data
 
 We proposed an An interpretable Transformer-based large model for  macroeconomic forecasting that can support massive external multimodal data feeds
 
 You can verify our model by real macroeconomic data in China, where you can open the related data in the`./data`.     The sample data contains "GDP" and uses "AAA" as external data.   You can choose the type of external data you want, and there is no limit to the amount of external data you can add.   Datasets are composed of three column fields, `Unique_ID` indicates the type of data, `ds` means the time,' y 'for data to be predicted, and 'exgenous' for external data.
 
-ecotrans has proposed an extensible external data access method. After testing, with the increase of external data access quantity, our method has stronger robustness than the baseline method
+EcoTrans has proposed an extensible external data access method. After testing, with the increase of external data access quantity, our method has stronger robustness than the baseline method
 
 You can watch the performance of the model change by adjusting the relevant parameters in 'GDPexample.py' and 'config_function_ex'. In 'GDPexample.py' we have rewrapped the hyperparameters of the model.
 
