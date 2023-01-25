@@ -1,7 +1,7 @@
 # EcoTrans: An interpretable large-scale Transformer-based model for macroeconomic forecasting with massive external multimodal data
 We propose EcoTrans, an open-source framework for macroeconomic forecasting with interpretability, using a Transformer-based large model that unifies external data interface to support massive multimodal information access.
 
-The `.data/USDCNY` file is the example data, you can run it directly by running the `XXX.py` file.You can choose the type of external data you want, and there is no limit to the amount of external data you can add.   Datasets are composed of three column fields, `Unique_ID` indicates the type of data, `ds` means the time,`y` for data to be predicted, and `exgenous` for external data.
+The `.data/USDCNY` file is the example data, you can run it directly by running the `XXX.py` .You can choose the type of external data you want, and there is no limit to the amount of external data you can add.   Datasets are composed of three column fields, `Unique_ID` indicates the type of data, `ds` means the time,`y` for data to be predicted, and `exgenous` for external data.
 
 EcoTrans has proposed an extensible external data access method. After testing, with the increase of external data access quantity, our method has stronger robustness than the baseline method, and the model also has a certain degree of interpretability
 
