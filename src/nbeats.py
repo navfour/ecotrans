@@ -219,8 +219,6 @@ class Nbeats(object):
     def create_stack(self):
         if self.include_var_dict is not None:
             x_t_n_inputs = self.output_size * int(sum([len(x) for x in self.include_var_dict.values()]))
-            # 奇怪的没看懂的字典初始化
-            # Correction because week_day only adds 1 no output_size
             if len(self.include_var_dict['week_day']) > 0:
                 x_t_n_inputs = x_t_n_inputs - self.output_size + 1
         else:

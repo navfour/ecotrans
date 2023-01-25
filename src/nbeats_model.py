@@ -119,18 +119,6 @@ class NBeatsBlock(nn.Module):
     def forward(self, insample_y: t.Tensor, insample_x_t: t.Tensor,
                 outsample_x_t: t.Tensor, x_s: t.Tensor) -> Tuple[t.Tensor, t.Tensor]:
 
-        ######### if self.include_var_dict is not None:
-        #########     insample_y = filter_input_vars(insample_y=insample_y, insample_x_t=insample_x_t,
-        #########                                    outsample_x_t=outsample_x_t,
-        #########                                    t_cols=self.t_cols, include_var_dict=self.include_var_dict)
-        #########
-        ######### # Static exogenous
-        ######### if (self.x_s_n_inputs > 0) and (self.x_s_n_hidden > 0):
-        #########     x_s = self.static_encoder(x_s)
-        #########     insample_y = t.cat((insample_y, x_s), 1)
-
-        # Compute local projection weights and projection
-        # 训练集进入layers#
         theta = self.layers(insample_y)
         backcast, forecast = self.basis(theta, insample_x_t, outsample_x_t)
 
@@ -161,8 +149,7 @@ class NBeats(nn.Module):
         for i, block in enumerate(self.blocks):
             if i == 99999:
                 i = i
-                # 为在其他位置留空
-                # print('inf')
+                # for other judge,do nothing in this code
             else:
                 backcast, block_forecast = block(insample_y=residuals, insample_x_t=insample_x_t,
                                                  outsample_x_t=outsample_x_t, x_s=x_s)
@@ -188,8 +175,8 @@ class NBeats(nn.Module):
             for i in range(self.dim-1):
                 append_str = 'ex' + str(i+1)
                 header.append(append_str)
-            x_t_df.to_csv('{}_临时缓存.csv'.format(self.string), index=None, header=header)
-            x_t_df = pd.read_csv('{}_临时缓存.csv'.format(self.string), index_col=None)
+            x_t_df.to_csv('{}_cache.csv'.format(self.string), index=None, header=header)
+            x_t_df = pd.read_csv('{}_cache.csv'.format(self.string), index_col=None)
             block_forecast, nullforcast = test_getdata.getx_t(x_t_df, self.windows_size,self.dim)
             list_forcast.append(float(block_forecast))
             # print(list_forcast)
@@ -290,11 +277,8 @@ class ExogenousBasisInterpretable(nn.Module):
         super().__init__()
 
     def forward(self, theta: t.Tensor, insample_x_t: t.Tensor, outsample_x_t: t.Tensor) -> Tuple[t.Tensor, t.Tensor]:
-        backcast_basis = insample_x_t  # shape:12
-        forecast_basis = outsample_x_t  # shape:1
-        # planA:用predict作为forecast_basis
-        # PlanB:把encorder的结果拿出来作为backcast_basis，把predict作为forecast_basis
-        # PlanC(待定):给encorder的结果后面接上decorder，作为backcast_basis，把predict作为forecast_basis
+        backcast_basis = insample_x_t 
+        forecast_basis = outsample_x_t 
         cut_point = forecast_basis.shape[1]
         backcast = t.einsum('bp,bpt->bt', theta[:, cut_point:], backcast_basis)
         forecast = t.einsum('bp,bpt->bt', theta[:, :cut_point], forecast_basis)
