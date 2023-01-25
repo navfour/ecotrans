@@ -6,7 +6,7 @@ The `.data/USDCNY` file is the example data, you can run it directly by running 
 
 EcoTrans has proposed an extensible external data access method. After testing, with the increase of external data access quantity, our method has stronger robustness than the baseline method, and the model also has a certain degree of interpretability
 
-You can watch the performance of the model change by adjusting the relevant parameters in `GDPexample.py` and `config_function_ex`. It should be noted that our model supports long period prediction, but in our experiment the prediction time is 1. This means that the results of all test sets need to be implemented through a loop. See the comments in `GDPexample.py` for details
+You can watch the performance of the model change by adjusting the relevant parameters in `GDPexample.py` and `config_function_ex.py`. It should be noted that our model supports long period prediction, but in our experiment the prediction time is 1. This means that the results of all test sets need to be implemented through a loop. See the comments in `GDPexample.py` for details
 
 ### Experiment
 
