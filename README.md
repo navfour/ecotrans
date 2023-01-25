@@ -9,7 +9,7 @@ You can watch the performance of the model change by adjusting the relevant para
 
 ### Experiment
 
-Compared with the baseline method, our method has a significant improvement. Compared with the baseline method, our method has a significant improvement. With the increase of external data, our apparent robustness is also stronger.
+Compared with the baseline method, our method has a significant improvement. Compared with the baseline method, our method has a significant improvement. With the increase of external data, our model becomes more robust.
 
 ![image](https://github.com/navfour/ecotrans/blob/main/img/img1.svg)
 
