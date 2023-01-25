@@ -1,17 +1,14 @@
 # EcoTrans: An interpretable large-scale Transformer-based model for macroeconomic forecasting with massive external multimodal data
+We propose EcoTrans, an open-source framework for macroeconomic forecasting with interpretability, using a Transformer-based large model that unifies external data interface to support massive multimodal information access.
 
-We proposed an An interpretable Transformer-based large model for  macroeconomic forecasting that can support massive external multimodal data feeds
+The data is in `AAA`.  The `XXX.csv` file is the example data.  You can run it directly by running the `XXX.py` file.   `AAA` contains all 25 external data used in the experiment.
 
-You can verify our model by real macroeconomic data in China, where you can open the related data in the`./data`.     The sample data contains "GDP" and uses "AAA" as external data.   You can choose the type of external data you want, and there is no limit to the amount of external data you can add.   Datasets are composed of three column fields, `Unique_ID` indicates the type of data, `ds` means the time,`y` for data to be predicted, and `exgenous` for external data.
+EcoTrans has proposed an extensible external data access method. After testing, with the increase of external data access quantity, our method has stronger robustness than the baseline method, and the model also has a certain degree of interpretability
 
-EcoTrans has proposed an extensible external data access method. After testing, with the increase of external data access quantity, our method has stronger robustness than the baseline method
-
-You can watch the performance of the model change by adjusting the relevant parameters in `GDPexample.py` and `config_function_ex`. In `GDPexample.py` we have rewrapped the hyperparameters of the model.
-
+You can watch the performance of the model change by adjusting the relevant parameters in `GDPexample.py` and `config_function_ex`. It should be noted that our model supports long period prediction, but in our experiment the prediction time is 1. This means that the results of all test sets need to be implemented through a loop. See the comments in `XXX.py` for details
 ### Experiment
 
-We compare the performance of A, B and C in economic forecasting. Compared with B and C, our model has significantly improved
-
+Compared with the baseline method, our method has a significant improvement. Compared with the baseline method, our method has a significant improvement. With the increase of external data, our apparent robustness is also stronger.
 
 ![image](https://github.com/navfour/ecotrans/blob/main/img/img1.svg)
 
@@ -19,7 +16,5 @@ We compare the performance of A, B and C in economic forecasting. Compared with 
 
 ### Datasets
 The sample data covers 30 years from the first quarter of 1992 to the third quarter of 2022
-## Usage
-you can directly use `GDPexample.py` 
-
-In "GDPexample.py", you can quickly compare the performance of EcoTrans in different structures and data sets by replacing the data sets we encapsulated the experiment in a different structure
+###Usage
+you can directly use `GDPexample.py`
