@@ -46,7 +46,7 @@ table1 Ablation study over EcoTrans model’s performance on different countries
 | N-BEATSx (20 series)  |0.050844|	0.228063|	0.008979|	0.022131|
 | EcoTrans (20 series)  |0.008108|	0.004371|	0.006809|	0.005188|
 
-Table The generalizability of EcoTrans for forecasting various macroeconomic indicators
+Table2 The generalizability of EcoTrans for forecasting various macroeconomic indicators
 
 |     | PMI  | Imports  | Exports | GR | PGO | CI | IE | Tax |
 |  ----  | ----  | ----  | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -60,7 +60,7 @@ Table The generalizability of EcoTrans for forecasting various macroeconomic ind
 
 The numbers in the table represent the SMAPE error
 
-![image](https://github.com/navfour/ecotrans/blob/main/img/img2.svg)
+![image](https://github.com/navfour/ecotrans/blob/main/img/img2.png)
 
 ### Datasets
 
