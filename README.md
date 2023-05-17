@@ -62,13 +62,8 @@ The numbers in the table represent the SMAPE error
 
 ![image](https://github.com/navfour/ecotrans/blob/main/img/img2.png)
 
-### Datasets
 
-The sample data covers more than 30 years from the first quarter of 1990 to the third quarter of 2023.The external data used in
-the experiment are shown in the table below, which are all from public data.
-
-![image](https://github.com/navfour/ecotrans/blob/main/img/img_datainform.png)
 
 ### Usage
 
-you can directly use `GDPexample.py`
+you can directly use `example.py`
