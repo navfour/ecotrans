@@ -11,6 +11,7 @@ import pandas as pd
 
 device = t.device("cuda:0" if t.cuda.is_available() else "cpu")
 
+
 def filter_input_vars(insample_y, insample_x_t, outsample_x_t, t_cols, include_var_dict):
     # This function is specific for the EPF task
     if t.cuda.is_available():
@@ -130,7 +131,7 @@ class NBeats(nn.Module):
     N-Beats Model.
     """
 
-    def __init__(self, blocks: nn.ModuleList, windows_size: int, dim: int, string:str):
+    def __init__(self, blocks: nn.ModuleList, windows_size: int, dim: int, string: str):
         super().__init__()
         self.blocks = blocks
         self.windows_size = windows_size
@@ -165,19 +166,19 @@ class NBeats(nn.Module):
             x_t_df = pd.DataFrame(iii.detach().cpu().numpy())
             x_t_df.loc[len(x_t_df.index)] = 0
             # print('2333')
-            insample_i = insample_x_t[number_iii]
-
-            # print(insample_i)
-            df_insample_i = pd.DataFrame(insample_i.detach().cpu().numpy()).T
-            df_insample_i.loc[len(df_insample_i.index)] = 0
-            x_t_df = pd.concat([x_t_df, df_insample_i], axis=1)
+            # insample_i = insample_x_t[number_iii]
+            #
+            # # print(insample_i)
+            # df_insample_i = pd.DataFrame(insample_i.detach().cpu().numpy()).T
+            # df_insample_i.loc[len(df_insample_i.index)] = 0
+            # x_t_df = pd.concat([x_t_df, df_insample_i], axis=1)
             header = ['red']
-            for i in range(self.dim-1):
-                append_str = 'ex' + str(i+1)
-                header.append(append_str)
-            x_t_df.to_csv('{}_cache.csv'.format(self.string), index=None, header=header)
-            x_t_df = pd.read_csv('{}_cache.csv'.format(self.string), index_col=None)
-            block_forecast, nullforcast = test_getdata.getx_t(x_t_df, self.windows_size,self.dim)
+            # for i in range(self.dim-1):
+            #     append_str = 'ex' + str(i+1)
+            #     header.append(append_str)
+            x_t_df.to_csv('cache/{}_cache.csv'.format(self.string), index=None, header=header)
+            x_t_df = pd.read_csv('cache/{}_cache.csv'.format(self.string), index_col=None)
+            block_forecast, nullforcast = test_getdata.getx_t(x_t_df, self.windows_size, self.dim)
             list_forcast.append(float(block_forecast))
             # print(list_forcast)
         forcast_informer = t.Tensor(list_forcast).to(device)
@@ -234,7 +235,6 @@ class TrendBasis(nn.Module):
             t.tensor(np.concatenate([np.power(np.arange(forecast_size, dtype=np.float) / forecast_size, i)[None, :]
                                      for i in range(polynomial_size)]), dtype=t.float32), requires_grad=False)
 
-
     def forward(self, theta: t.Tensor, insample_x_t: t.Tensor, outsample_x_t: t.Tensor) -> Tuple[t.Tensor, t.Tensor]:
         cut_point = self.forecast_basis.shape[0]
         backcast = t.einsum('bp,pt->bt', theta[:, cut_point:], self.backcast_basis)
@@ -264,7 +264,6 @@ class SeasonalityBasis(nn.Module):
         self.backcast_basis = nn.Parameter(backcast_template, requires_grad=False)
         self.forecast_basis = nn.Parameter(forecast_template, requires_grad=False)
 
-
     def forward(self, theta: t.Tensor, insample_x_t: t.Tensor, outsample_x_t: t.Tensor) -> Tuple[t.Tensor, t.Tensor]:
         cut_point = self.forecast_basis.shape[0]
         backcast = t.einsum('bp,pt->bt', theta[:, cut_point:], self.backcast_basis)
@@ -277,8 +276,8 @@ class ExogenousBasisInterpretable(nn.Module):
         super().__init__()
 
     def forward(self, theta: t.Tensor, insample_x_t: t.Tensor, outsample_x_t: t.Tensor) -> Tuple[t.Tensor, t.Tensor]:
-        backcast_basis = insample_x_t 
-        forecast_basis = outsample_x_t 
+        backcast_basis = insample_x_t
+        forecast_basis = outsample_x_t
         cut_point = forecast_basis.shape[1]
         backcast = t.einsum('bp,bpt->bt', theta[:, cut_point:], backcast_basis)
         forecast = t.einsum('bp,bpt->bt', theta[:, :cut_point], forecast_basis)
@@ -383,8 +382,8 @@ class ExogenousBasisTransformer(nn.Module):
         x_t = t.cat([insample_x_t, outsample_x_t], dim=2)
 
         x_t_df = pd.DataFrame(x_t.numpy().squeeze()).T
-        x_t_df.to_csv('咱也不知道为啥.csv', index=None)
-        x_t_df = pd.read_csv('咱也不知道为啥.csv', index_col=None)
+        x_t_df.to_csv('notuseful.csv', index=None)
+        x_t_df = pd.read_csv('notuseful.csv', index_col=None)
         aaa, bbb = test_getdata.getx_t(x_t_df)
 
         x_t = self.transformer(x_t_df)[:]
