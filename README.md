@@ -33,7 +33,7 @@ do directly.
 
 table1 Ablation study over EcoTrans model’s performance on different countries
 
-|     | China  | United States  | United Kindom | United Kindom |
+|     | China  | United States  | United Kindom | Japan |
 |  ----  | ----  | ----  | ---- | ---- |
 | N-BEATS (with no external data)   | 0.008103 | 0.004641  | 0.006511 | 0.004799 |
 | EcoTrans (with no external data)  |0.006823|	0.033024|	0.006764|	0.004787|
