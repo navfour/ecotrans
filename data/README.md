@@ -4,7 +4,7 @@
 
 We provide experimental data, raw data and data preprocessing code
 
-experimental data contains all the experimental data, Including`Germany_GDP`,`Japan_GDP`,`UK_GDP`,`US_GDP`,`China_GDP`,`China_Goverment_Revenue`,`China_Total_Profit_of_Industrial_Enterprises`,`China_Completed_Investment_in_Real_Estate_Development`,`China_The_Total_Amount_of_Import`,`China_Power_Generation_Output`,`China_PMI`,`China_The_Total_Amount_of_Export`,`China_Tax_Revenue`,
+experimental data contains all the experimental data, Including`Germany_GDP`,`Japan_GDP`,`UK_GDP`,`US_GDP`,`China_GDP`,`China_Goverment_Revenue`,`China_Total_Profit_of_Industrial_Enterprises`,`China_Completed_Investment_in_Real_Estate_Development`,`China_The_Total_Amount_of_Import`,`China_Power_Generation_Output`,`China_PMI`,`China_The_Total_Amount_of_Export`,`China_Tax_Revenue`
 
 ### Special Instructions
 
