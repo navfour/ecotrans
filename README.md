@@ -1,33 +1,16 @@
 # An interpretable Transformer-based framework for macroeconomic forecasting with massive external multimodal data
 
-We propose EcoTrans, an open-source framework for macroeconomic forecasting with interpretability, using a
-Transformer-based large model that unifies external data interface to support massive multimodal information access.
+We propose EcoTrans, an open-source framework for macroeconomic forecasting with interpretability, using a Transformer-based interface to support massive multimodal information access.
 
-The `data` file is the example data, you can run it directly by running the `example.py` .You can choose the type of
-external data you want, and there is no limit to the amount of external data you can add. Datasets are composed of three
-column fields, `Unique_ID` indicates the type of data, `ds` means the time,`y` for data to be predicted, and `exgenous`
-for external data.For more detailed data description you can refer to `readme` in the `Data` folder
+The `data` file is the example data, and you can run it directly by  `example.py`.You can choose the type of external data you want, and there is no limit to the amount of external data you can add. Datasets are composed of three column fields, `Unique_ID` indicates the type of data, `ds` means the time,`example.py`y` for data to be predicted, and exgenous for external data. Refer to the readme in the Data folder for more detailed descriptions.
+It should be noted that what is given in the `example.py` file is the direct code of the paper's experiment, where circular cutting is adopted to cut the test set. You may not need to do this in a real application scenario. You can remove some configuration loops from the `example.py` file, which we present in our new example in `example2.py`.
+You can watch the performance of the model change by adjusting the relevant parameters in `example.py` and `config_function_ex.py`. It should be noted that our model supports long-period prediction, but in our experiment, the prediction time is 1, which means that the results of all test sets need to be implemented through a loop. See the comments in `example2.py` for details.
+EcoTrans has proposed an extensible external data access method. After testing, with the increase of external data access quantity, our approach has stronger robustness than the baseline method, and the model also has a certain degree of interpretability.
 
-It should be noted that what is given in the `example.py` file is the direct code of the experiment of the paper. In the
-paper, circular cutting is adopted to cut the test set. You may not need to do this in a real application scenario. You
-can remove some of the configuration loops from the `example.py` file, which we present in our new example
-in `example2.py`.
-
-You can watch the performance of the model change by adjusting the relevant parameters in `GDPexample.py`
-and `config_function_ex.py`. It should be noted that our model supports long period prediction, but in our experiment
-the prediction time is 1. This means that the results of all test sets need to be implemented through a loop. See the
-comments in `GDPexample.py` for details
-
-EcoTrans has proposed an extensible external data access method. After testing, with the increase of external data
-access quantity, our method has stronger robustness than the baseline method, and the model also has a certain degree of
-interpretability
 
 ### Experiment
 
-We compared the performance of our model in different countries and across different types of data, and the overall
-result was higher than the baseline model. In particular, from the results of the middle layer, our model can be well
-fitted to the external data information. We have shown in the sample how to get the middle-tier results, which you can
-do directly.
+We compared the performance of our model in different countries and across different types of data, and the overall result was more accurate than the baseline model. Our model can be well-fitted to the external data information, and we have shown in the sample how to get the decomposed results, which you can do directly.
 
 ![image](https://github.com/navfour/ecotrans/blob/main/img/img1.svg)
 
