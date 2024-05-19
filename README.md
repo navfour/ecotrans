@@ -1,4 +1,4 @@
-# An interpretable Transformer-based framework for macroeconomic forecasting with massive external multimodal data
+#  A decomposable Transformer-based framework for macroeconomic forecasting with massive external data
 
 We propose EcoTrans, an open-source framework for macroeconomic forecasting with interpretability, using a Transformer-based interface to support massive multimodal information access.
 
